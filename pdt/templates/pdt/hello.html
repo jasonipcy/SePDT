@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title> hello </title>
+        <meta charset='utf-8'>
+    </head>
+    <body>
+        {% if request.user.is_authenticated %}
+            <p>{{request.user}} 您已經登入囉!</p>
+			<ul>
+				{% for group in groups %}
+					{% if group.name == "Developer"%}
+						<strong>{{ group.name }}<strong>
+						<meta http-equiv="refresh" content="0; /development/">
+					{% elif group.name == "Manager" %}
+						<strong>{{ group.name }}<strong> 
+						<meta http-equiv="refresh" content="0; URL=http://www.yahoo.com">
+					{% else %}
+						<strong> IMPOSSIBLE <strong>
+					{% endif %}
+				{% endfor %}
+			</ul>
+            <a href="/logout/">登出</a>
+        {% else %}
+            <p>您尚未登入!<a href="/login/">登入</a></p>
+			<meta http-equiv="refresh" content="0; /login/">
+        {% endif %}
+    </body>
+</html>

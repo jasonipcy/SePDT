@@ -1,0 +1,119 @@
+{% load staticfiles %}
+{% load render_table from django_tables2 %}
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>System Log</title>
+<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+<div id="wrapper">
+	<div id="header">
+		<div class="left">Project Data Tracker</div>
+		<div class="right">
+			<ul class="left2">
+		        <li>
+		            <a href="#" class="list">Project List</a>
+		            <a href="#" class="ico"><img src="{% static 'images/down.png' %}"></a>
+		            <ul class="dropdown">
+						{% for project in projects %}
+						    <li><a href="#">{{ project }}</a></li>
+						{% endfor %}
+		            </ul>
+		        </li>
+		    </ul>
+			<div class="right2">
+				<div class="info">
+					<input class="search" type="text" placeholder="Search">
+					<a href="111"><img src="{% static 'images/wenhao.png' %}"></a>
+					<a href="/logout/"><img src="{% static 'images/logout.png' %}"></a>
+					<a class="hihi" href="#"><img class="tou" src="{% static 'images/tou.png' %}"> {{ request.user }}</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="content">
+		<div class="left">
+			<div class="frame">
+				<div class="line1 block">
+					<div class="info">
+						<div class="logo">
+							<img src="{% static 'images/plane.png' %}">
+						</div>
+						
+						<div class="character">
+							<div class="title">Project X</div>
+							<div class="item">Current Iteration: 1</div>
+						</div>
+					</div>
+					
+					<div class="mynav">
+						<a href="#">Overview</a>
+					</div>
+					
+					<div class="mynav currentnav">
+						<a href="#">System Log</a>
+					</div>
+				</div>
+				
+				<div class="line2 block">
+					<div class="title">
+						ITERATION ACTIVITIES
+					</div>
+					
+					<div class="mynav"><a href="/development/">Development</a></div>
+					<div class="mynav"><a href="#">Defects Removal</a></div>
+					<div class="mynav"><a href="#">Management</a></div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="right">
+			<div class="page2">
+				<div class="lines line1">
+					<div class="title">System Log</div>
+					<span><a href=""><u>Development Time</u></a></span>
+					<span>|</span>
+					<span><a href="">Defects Removal Time</a></span>
+					<span>|</span>
+					<span><a href="">Code Size Entry</a></span>
+					<span>|</span>
+					<span><a href="">Defects Removal Entry</a></span>
+				</div>
+				
+				<div class="lines line2">
+					<div class="title">Log/Development Time</div>
+					<table>
+						<tr>
+							<th width="40"></th>
+							<th width="100">Developer</th>
+							<th width="210">Duration</th>
+							<th width="230">Start Time</th>
+							<th width="230">End Time</th>
+							<th width="100">Phase</th>
+							<th width="70">Iteration</th>
+						</tr>
+						{% for d in data %}
+							<tr>
+								<td>{{ forloop.counter }}</td>
+								<td>{{ request.user }}</td>
+								<td>{{ d.getDuration }}</td>
+								<td>{{ d.start_time }}</td>
+								<td>{{ d.end_time }}</td>
+								<td>{{ d.iteration_id.phase_id.get_phase_name_display }}</td>
+								<td>{{ d.iteration_id.iteration_version }}</td>
+							</tr>
+						{% endfor %}
+					</table>
+ 				</div>
+ 				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

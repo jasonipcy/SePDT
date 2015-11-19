@@ -1,0 +1,522 @@
+body {
+	margin:0px;
+	padding:0px;
+	font-family:Geneva, Arial, Helvetica, sans-serif;
+}
+
+a {
+	text-decoration:none;
+	font-family:Geneva, Arial, Helvetica, sans-serif;
+}
+
+ul{
+    padding: 0;
+    list-style: none;
+}
+
+.dropdown li{
+	padding-left: 15px;
+}
+
+ul li ul.dropdown{
+    min-width: 150px; /* Set width of the dropdown */
+    background: #f2f2f2;
+    display: none;
+    position: absolute;
+    z-index: 999;
+    left: 265px;
+}
+
+ul li:hover ul.dropdown{
+    display: block;	/* Display the dropdown */
+}
+
+ul.left2, ul.left2 ul
+{
+	list-style:none;
+	margin:0; 
+	padding:0;
+}
+
+ul.left2 li:hover > ul 			
+{ 
+	display:block;
+}
+
+img {
+	border:none;
+}
+
+#wrapper {
+	width:100%;
+	margin:0 auto;
+}
+
+@media screen and (max-width:1200px){
+	#wrapper {
+		width:1300px;
+	}
+}
+
+#header {
+	background:#205081;
+	overflow:hidden;
+}
+
+#header .left {
+	width:260px;
+	float:left;
+	color:white;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	font-size:18px;
+	font-weight:bold;
+}
+
+#header .right {
+	width:70%;
+	float:left;
+	height:50px;
+	line-height:50px;
+	overflow:hidden;
+}
+
+#header .right .left2 {
+	float:left;
+	width:20%;
+}
+
+#header .right .left2 .list {
+	color:#f5ffff;
+	padding-left:10px;
+}
+
+#header .right .left2 .ico img {
+	width:15px;
+}
+
+#header .right .right2 {
+	float:left;
+	width:80%;
+	height:50px;
+	line-height:50px;
+}
+
+#header .right .right2 .info {
+	width:400px;
+	height:50px;
+	line-height:50px;
+	text-align:right;
+	float:right;
+	margin-right:20px;
+}
+
+#header .right .right2 .info * {
+	vertical-align:middle;
+}
+
+#header .right .right2 .info .search {
+	color:#8caacc;
+	border:none;
+	padding:5px;
+	width:200px;
+	border-radius:5px;
+	background:#1a4067 url(../images/search.png) 180px no-repeat;
+}
+
+#header .right .right2 .info img {
+	width:20px;
+	margin-left:20px;
+}
+
+#header .right .right2 .info img.tou {
+	width:25px;
+}
+
+#content .left {
+	float:left;
+	width:260px;
+}
+
+#content .left .frame {
+	border-right:2px solid #cecece;
+	height:600px;
+}
+
+#content .left .frame .block {
+	padding:10px 10px;
+}
+
+#content .left .frame .line1 {
+	border-bottom:2px solid #cecece;
+}
+
+#content .left .frame .line1 .info {
+	overflow:hidden;
+	margin-bottom:20px;
+}
+
+#content .left .frame .line1 .info .logo {
+	float:left;
+	width:35%;
+}
+
+#content .left .frame .line1 .info .logo img {
+	width:100%;
+}
+
+#content .left .frame .line1 .info .character {
+	float:left;
+	width:65%;
+}
+
+#content .left .frame .line1 .info .character .title {
+	color:#1f64c3;
+	font-size:22px;
+	padding-left:10px;
+	font-weight:bold;
+}
+
+#content .left .frame .line1 .info .character .item {
+	color:#6a6a6a;
+	font-size:17px;
+	padding-left:10px;
+	padding-top:7px;
+}
+
+#content .left .frame .mynav.currentnav {
+	background:#e7e7e7;
+	margin-left:-10px;
+	margin-right:-10px;
+	padding-left:30px;
+}
+
+#content .left .frame .mynav {
+	padding:10px 0px;
+	padding-left:20px;
+	font-size:20px;
+	color:#5387c3;
+}
+
+#content .left .frame .mynav a {
+	color:#5387c3;
+}
+
+#content .left .frame .line2 {
+	border-bottom:2px solid #cecece;
+}
+
+#content .left .frame .line2 .title {
+	font-weight:bold;
+	padding-bottom:10px;
+	font-size:20px;
+	color:#68676c;
+}
+
+#content .left .frame .line2 .item {
+	padding:6px;
+	font-size:20px;
+	color:#5387c3;
+	padding-left:20px;
+}
+
+#content .left .frame .line3 {
+}
+
+#content .left .frame .line3 .title {
+	font-weight:bold;
+	padding-bottom:10px;
+	font-size:20px;
+	color:#68676c;
+}
+
+#content .left .frame .line3 .item {
+	padding:6px;
+	font-size:20px;
+	color:#646466;
+	padding-left:20px;
+}
+
+#content .left .frame .line3 button {
+	padding:3px 20px;
+}
+
+#content .right {
+	float:left;
+	/*width:80%;*/
+	position: absolute;
+    margin-left: 260px;
+}
+
+#content .right .page1 .line1 {
+	overflow:hidden;
+	border-bottom:2px solid #cecece;
+	padding-bottom:10px;
+}
+
+#content .right .page1 .line1 .left {
+	width:25%;
+	float:left;
+}
+
+#content .right .page1 .line1 .left .frame2 {
+	padding:10px 0px 0px 30px;
+}
+
+#content .right .page1 .line1 .left .frame2 .title {
+	font-size:20px;
+	font-weight:bold;
+}
+
+#content .right .page1 .line1 .left .frame2 .item.last {
+	padding-top:30px;
+}
+
+#content .right .page1 .line1 .center {
+	width:50%;
+	float:left;
+	padding-top:30px;
+	color:#3b3b3b;
+}
+
+#content .right .page1 .line1 .right {
+	width:25%;
+	float:left;
+	text-align:center;
+	padding-top:30px;
+}
+
+#content .right .page1 .line1 .right img {
+	width:30%;
+}
+
+#content .right .page1 .line2 {
+	overflow:hidden;
+	padding-top:20px;
+}
+
+#content .right .page1 .line2 .item {
+	float:left;
+	width:32%;
+	margin-left:1%;
+}
+
+#content .right .page1 .line2 .item .frame2 {
+	width:90%;
+	margin:0 auto;
+	padding:10px;
+	border:2px solid #cecece;
+}
+
+#content .right .page1 .line2 .item .frame2.sec {
+	margin-top:20px;
+}
+
+#content .right .page1 .line2 .item .frame2 .title {
+	font-weight:bold;
+}
+
+#content .right .page1 .line2 .item .frame2 img {
+	width:100%;
+}
+
+#content .right .page1 .line2 .item .frame2 .big {
+	font-weight:bold;
+	font-size:40px;
+}
+
+#content .right .page2 .lines {
+	padding:20px 0px 0px 30px;
+	padding-bottom:10px;
+}
+
+#content .right .page2 .lines .title {
+	color:#313131;
+	font-size:25px;
+	margin-bottom:20px;
+	font-weight:bold;
+}
+
+#content .right .page2 .line1 {
+	border-bottom:2px solid #cecece;
+}
+
+#content .right .page2 .line1 span {
+	font-size:20px;
+	color:#5387c3;
+	margin:0px 4px;
+}
+
+#content .right .page2 .line1 a {
+	font-size:20px;
+	color:#5387c3;
+}
+
+#content .right .page2 .line2 table {
+	text-align:left;
+	border:none;
+}
+
+#content .right .page2 .line2 table td {
+	border-bottom:1px solid #d6d6d6;
+	padding:5px 0px;
+	color:#686868;
+}
+
+#content .right .page2 .line2 table td.id {
+	color:#5387c3;
+}
+
+#content .right .page2 .line2 table th {
+	border-bottom:1px solid #d6d6d6;
+	padding:5px 0px;
+}
+
+#content .right .page2 .line2 .more {
+	text-align:center;
+	width:860px;
+	margin-top:10px;
+}
+
+#content .right .page2 .line2 .more a {
+	color:#5387c3;
+}
+
+#content .right .page2 button {
+	background:#3173b0;
+	padding:5px 10px;
+	border-radius:5px;
+	border:none;
+	color:white;
+	margin-left:5px;
+	cursor:pointer;
+}
+
+#content .right .page3 .line1 {
+	border:1px solid #d6d6d6;
+	padding:15px;
+	margin:20px;
+	width:650px;
+	border-radius:5px;
+}
+
+#content .right .page3 .line1 .title {
+	font-size:25px;
+}
+
+#content .right .page3 .line1 .split {
+	height:1px;
+	width:100%;
+	background:#d6d6d6;
+	margin:10px 0px 20px 0px;
+}
+
+#content .right .page3 .line1 .control * {
+	vertical-align:middle;
+}
+
+#content .right .page3 .line1 .control #time {
+	font-size:40px;
+	font-weight:bold;
+}
+
+#content .right .page3 .line1 .control input {
+	border-radius:5px;
+	padding:5px 10px;
+	border:1px solid #d2d2d2;
+}
+
+#content .right .page3 .line1 button {
+	background:#3672b0;
+	width:100px;
+	padding:10px 0px;
+	color:white;
+	border:none;
+	border-radius:5px;
+	cursor:pointer;
+	font-size:14px;
+}
+
+#content .right .page3 .line1 button.clear {
+	background:none;
+	color:#3672b0;
+	font-size:18px;
+	width:auto;
+}
+
+#content .right .page3 .line1 table {
+	margin-left:20px;
+}
+
+#content .right .page3 .line1 table td {
+	padding:5px 0px;
+}
+
+#content .right .page3 .line1 .require {
+	color:red;
+	vertical-align:middle;
+}
+
+#content .right .page3 .line1 .tleft {
+	text-align:right;
+	color:#818181;
+}
+
+#content .right .page3 .line1 .tright {
+	text-align:left;
+	padding-left:20px;
+}
+
+#content .right .page3 .line1 table input {#
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: 1px solid #d2d2d2;
+	width:300px;
+}
+
+#content .right .page3 .line1 textarea {
+	border-radius: 5px;
+    padding: 5px 10px;
+    border: 1px solid #d2d2d2;
+	width:300px;
+	height:100px;
+	resize:none;
+}
+
+#content .right .page3 .line1 .submit {
+	padding-left:155px;
+}
+
+.hihi {
+	color:white;
+}
+
+input {
+	background:#3672b0;
+	width:100px;
+	padding:10px 0px;
+	color:white;
+	border:none;
+	border-radius:5px;
+	cursor:pointer;
+	font-size:14px;
+}
+
+#result p {
+	font-size: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

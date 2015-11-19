@@ -1,0 +1,169 @@
+{% load staticfiles %}
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Development</title>
+<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+<script>
+	
+var time = 0;
+var running = 0;
+var time_count = 0;
+var d = new Date();
+var start_ts = 0;
+var end_ts = 0;
+
+function startPause()
+{
+        if(time == 0){
+        		start_ts = d.getTime();
+        }
+
+        if(running == 0){
+                running = 1;
+                increment();
+                document.getElementById("startPause").innerHTML = "Pause";
+                document.getElementById("result").innerHTML = "";
+        }else{
+                running = 0;
+                document.getElementById("startPause").innerHTML = "Resume";
+                document.getElementById("result").innerHTML = "";
+        }
+}
+
+function stop() {
+        running = 0;
+        time_count = Math.floor(time/10);
+        end_ts = d.getTime();
+        document.getElementById("result").innerHTML = "<p>Time expanded: " + Math.floor(time/10/60/60) + " hour(s) "+ Math.floor(time/10/60) + " minute(s) " + Math.floor(time/10 % 60) + " second(s)</p><form method='POST' action='/set_time/'>{% csrf_token %}<input type='hidden' value="+start_ts+" name='start_ts'><input type='hidden' value="+end_ts+" name='end_ts'><input type='hidden' value="+time_count+" name='duration'><input type='submit' value='submit'></form>";
+        time = 0;
+        document.getElementById("startPause").innerHTML = "Start";
+        document.getElementById("time").innerHTML = "00:00:00";
+}
+
+function reset()
+{
+        running = 0;
+        time = 0;
+        document.getElementById("time").innerHTML = "00:00:00";
+        document.getElementById("startPause").innerHTML = "Start";
+        document.getElementById("result").innerHTML = "";
+}
+
+// function submit()
+// {
+// 		document.getElementById("result").innerHTML = "Submitted";
+// }
+
+function increment()
+{
+        if(running == 1){
+                setTimeout(function(){
+                        time++;
+
+						var secs = Math.floor(time/10 % 60);
+                        var mins = Math.floor(time/10/60);
+                        var hrs = Math.floor(time/10/60/60);
+                       
+                        if(hrs < 10){
+                                hrs = "0" + hrs;
+                        }
+                        if(mins < 10){
+                                mins = "0" + mins;
+                        }
+                        if(secs < 10){
+                                secs = "0" + secs;
+                        }
+                        document.getElementById("time").innerHTML = hrs + ":" + mins + ":" + secs;
+                        increment();
+                       
+                },100);
+        }
+}
+
+</script>
+</head>
+<body>
+
+<div id="wrapper">
+	<div id="header">
+		<div class="left">Project Data Tracker</div>
+		<div class="right">
+			<ul class="left2">
+		        <li>
+
+		            <a href="#" class="list">Project List</a>
+		            <a href="#" class="ico"><img src="{% static 'images/down.png' %}"></a>
+		            <ul class="dropdown">
+						{% for project in projects %}
+						    <li><a href="#">{{ project }}</a></li>
+						{% endfor %}
+		            </ul>
+		        </li>
+		    </ul>
+			<div class="right2">
+				<div class="info">
+					<input class="search" type="text" placeholder="Search">
+					<a href="#"><img src="{% static 'images/wenhao.png' %}"></a>
+					<a href="/logout/"><img src="{% static 'images/logout.png' %}"></a>
+					<a class="hihi" href="#"><img class="tou" src="{% static 'images/tou.png' %}"> {{ request.user }}</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="content">
+		<div class="left">
+			<div class="frame">
+				<div class="line1 block">
+					<div class="info">
+						<div class="logo">
+							<img src="{% static 'images/plane.png' %}">
+						</div>
+						
+						<div class="character">
+							<div class="title">Project X</div>
+							<div class="item">Current Iteration: 1</div>
+						</div>
+					</div>
+					
+					<div class="mynav">
+						<a href="#">Overview</a>
+					</div>
+					
+					<div class="mynav">
+						<a href="/log/">System Log</a>
+					</div>
+				</div>
+				
+				<div class="line2 block">
+					<div class="title">
+						ITERATION ACTIVITIES
+					</div>
+					<div class="mynav currentnav"><a href="#">Development</a></div>
+					<div class="mynav"><a href="#">Defects Removal</a></div>
+					<div class="mynav"><a href="#">Management</a></div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="right">
+			<div class="page3">
+				<div class="line1">
+					<div class="title">Timer</div>
+					<div class="split"></div>
+					<div class="control">
+						<span id="time">00:00:00</span>
+						<button id="startPause" onclick="startPause()">Start</button>
+						<button onclick="stop()">Stop</button>
+						<button onclick="reset()">Reset</button>
+					</div>
+					<div id="result"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
